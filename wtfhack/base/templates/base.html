@@ -8,33 +8,22 @@
 <head>
   <meta charset="utf-8">
 
-  <title>{% block page_title %}{{ _("Your Site") }}{% endblock %}</title>
+  <title>{% block page_title %}{{ _("What the fuck should I hack this weekend?") }}{% endblock %}</title>
   <meta name="description" content="{% block meta_description %}{% endblock %}">
   <meta name="author" content="{% block meta_author %}{% endblock %}">
 
-  <!-- Mobile viewport optimized: h5bp.com/viewport -->
-  <meta name="viewport" content="width=device-width">
+
 
   <link rel="stylesheet" href="{{ STATIC_URL }}css/style.css">
   {% block css %}{% endblock %}
 
-  <!-- Modernizr enables HTML5 elements & feature detects for optimal performance. -->
-       <script src="{{ STATIC_URL }}js/libs/modernizr-2.5.3-respond-1.1.0.min.js"></script>
      </head>
      <body class="{% block body_class %}{% endblock %}">
-  </div><!-- /.container -->
   {% block body %}
 
-  {% include "nav.html" %}
-  
   <div role="main">
     {% block content %}{% endblock %}
   </div>
-
-  {% include "footer.html" %}
-
-
-  <!-- JavaScript at the bottom for fast page loading -->
 
   <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>

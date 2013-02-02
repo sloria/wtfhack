@@ -20,6 +20,6 @@ django-debug-toolbar
 # Migrations
 South
 
-# Various tidbits
-# commonware
+# Github API python bindings
+PyGithub
 
