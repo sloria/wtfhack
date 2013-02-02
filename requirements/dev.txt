@@ -19,6 +19,3 @@ watchdog
 
 # Shell
 ipython
-
-# Command extensions
-django-extensions

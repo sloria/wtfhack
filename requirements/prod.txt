@@ -23,3 +23,6 @@ South
 # Various tidbits
 # commonware
 
+# Command extensions
+django-extensions
+
