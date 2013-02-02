@@ -19,24 +19,20 @@
     <p class="repo-description center">{{ repo.description }}</p>
     {% if repo.language.learn_url %}
         <ul class='unstyled menu'>
-        <li><h3><a href="{% url 'get_repo' repo.language.name %}">I don't fucking like that</a></h3></li>
-        <li><h3><a href="{{ repo.language.learn_url }}">I don't fucking know {{ repo.language.name }}</a></h3></li>
-            
+			<li><h3><a href="{% url 'get_repo' repo.language.name %}">I don't fucking like that</a></h3></li>
+			<li><h3><a href="{{ repo.language.learn_url }}">I don't fucking know {{ repo.language.name }}</a></h3></li>
         </ul>
-
-
     {% endif %}
     {% else %}
     <h2>Fuck. No projects in this language.</h2>
     {% endif %}
-	<h3><a href="{{ repo.language.learn_url }}">I fucking want to submit</a></h3>
+	<h3><a id="github" href="#">I fucking want to submit</a></h3>
 </div><!-- end row -->
 </div> <!-- /container -->
 
 <script>
 $(function(){
-    var $languageSelect = $('#language-select');
-    $languageSelect.editable({
+    $('#language-select').editable({
         value: 2,
         showbuttons: false, 
         source: [
@@ -51,6 +47,9 @@ $(function(){
 
         value: "{{ selected }}"
         });
+	$('#github').click(function() {
+		window.open("{% url 'socialauth_begin' 'github' %}");
+	});
 });
 </script>
 {% endblock %}
