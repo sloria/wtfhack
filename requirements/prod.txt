@@ -26,3 +26,6 @@ South
 # Command extensions
 django-extensions
 
+#Testing
+django-nose
+

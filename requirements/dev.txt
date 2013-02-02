@@ -11,7 +11,6 @@ nose
 selenium
 webtest
 django-webtest
-django-nose
 coverage
 django-coverage
 factory_boy
