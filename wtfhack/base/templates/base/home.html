@@ -2,15 +2,14 @@
 {% load url from future %}
 {% block page_class %}home-page{% endblock %}
 {% block content %}
-<div class="container">
     <div class="row">
+        {% if repo %}     
         <h1>
             I want to fucking hack
 <a href="#" id="language-select" data-type="select" data-pk="1"  data-original-title="language"></a>.
-
-        
     </h1>
 </div><!-- end row-->
+        {% endif %}
 
 <div class="row">
 
@@ -24,22 +23,9 @@
         </ul>
     {% endif %}
     {% else %}
-    <h2>Fuck. No projects in this language.</h2>
+    <h2>No projects. <a href="{% url 'socialauth_begin' 'github' %}">Contribute.</a></h2>
     {% endif %}
 </div><!-- end row -->
-
-<footer>
-  <nav>
-    <ul>
-		{% if user.is_active %}
-		<li><a href="{% url 'submit' %}">Submit</a></li>
-		{% else %}
-		<li><a href="{% url 'socialauth_begin' 'github' %}"><i class="icon-github-alt"></i>Submit</a></li>
-		{% endif %}
-    </ul>
-  </nav>
-</footer>
-</div> <!-- /container -->
 
 
 <script>

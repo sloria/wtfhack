@@ -5,60 +5,16 @@
 <div class="container">
     <div class="row">
         <h1>
-            I want to fucking hack
-<a href="#" id="language-select" data-type="select" data-pk="1"  data-original-title="language"></a>.
-
-        
-    </h1>
+            Which project?        
+        </h1>
 </div><!-- end row-->
 
 <div class="row">
 
-    {% if repo %}
-    <h2 class='center repo-name'><a href="{{ repo.url }}">{{ repo.full_name }}</a></h2>
-    <p class="repo-description center">{{ repo.description }}</p>
-    {% if repo.language.learn_url %}
-        <ul class='unstyled menu'>
-			<li><h3><a href="{% url 'get_repo' repo.language.name %}">I don't fucking like that</a></h3></li>
-			<li><h3><a href="{{ repo.language.learn_url }}">I don't fucking know {{ repo.language.name }}</a></h3></li>
-        </ul>
-    {% endif %}
-    {% else %}
-    <h2>Fuck. No projects in this language.</h2>
-    {% endif %}
+    <p>projects here...</p>
 </div><!-- end row -->
 
-<footer>
-  <nav>
-    <ul>
-		{% if user.is_active %}
-		<li><a href="{% url 'submit' %}">Submit</a></li>
-		{% else %}
-		<li><a href="{% url 'socialauth_begin' 'github' %}">Submit</a></li>
-		{% endif %}
-    </ul>
-  </nav>
-</footer>
+
 </div> <!-- /container -->
 
-
-<script>
-$(function(){
-    $('#language-select').editable({
-        value: 2,
-        showbuttons: false, 
-        source: [
-            {% for language in all_languages %}
-                {value: "{{ language.name }}", text: "{{ language.name }}"},
-            {% endfor %}
-           ],
-        url: function(params){
-            var language = params.value;
-            document.location.href = '/language/' + language;
-        },
-
-        value: "{{ selected }}"
-	});
-});
-</script>
 {% endblock %}

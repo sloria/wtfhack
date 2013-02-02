@@ -44,7 +44,7 @@ def get_repo(request, language):
 				
 def submit(request):
     """ View for the submit page """
-    user = UserSocialAuth.objects.filter(provider='github').get(id=request.user.id)
+    user = UserSocialAuth.objects.filter(provider='github').get(user_id=request.user.id)
     print user.tokens[u'access_token']
     github = Github(user.tokens[u'access_token'])
     repos = [repo for repo in github.get_user().get_repos()]

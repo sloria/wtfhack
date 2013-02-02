@@ -1,9 +1,14 @@
+{% load url from future %}
+<div class="container"></div>
 <footer>
-  <small>© Company 2012</small>
   <nav>
     <ul>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Contact</a></li>
+        <li><a href="{% url 'home' %}">Home</a>
+        {% if user.is_active %}
+        <li><a href="{% url 'submit' %}">Submit</a></li>
+        {% else %}
+        <li><a href="{% url 'socialauth_begin' 'github' %}">Submit</a></li>
+        {% endif %}
     </ul>
   </nav>
 </footer>
