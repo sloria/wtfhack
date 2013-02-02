@@ -1,6 +1,5 @@
 """ Basic models, such as user profile """
 from django.db import models
-from github import Github
 
 class Language(models.Model):
     name = models.CharField(max_length=40, null=False)

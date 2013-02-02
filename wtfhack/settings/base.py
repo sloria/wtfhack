@@ -25,7 +25,11 @@ MINIFY_BUNDLES = {
     }
 }
 
-DEBUG = TEMPLATE_DEBUG = True
+# DEBUG = TEMPLATE_DEBUG = True
+
+FIXTURE_DIRS = (
+    os.path.join(PROJECT_ROOT, 'fixtures'),
+)
 
 
 SUPPORTED_NONLOCALES = ['media', 'admin', 'static']
