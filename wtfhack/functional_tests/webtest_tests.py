@@ -63,12 +63,12 @@ class TestAUser(WebTest):
         # goes to page
         res = self.app.get(reverse(get_repo, args=('python',)))
 
-        res = res.click("I don't fucking like that")
+        res = res.click("F that")
         assert_equal(res.status, '200 OK')
 
-
-
-
-
+    def test_can_submit(self):
+        # goes to the homepage
+        res = self.app.get('/')
+        res = res.click('Submit')
 
 

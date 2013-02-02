@@ -43,7 +43,7 @@ h1 {
 }
 
 .editable {
-  color: #333333;
+  color: #3333cc;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -54,7 +54,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .repo-name a {
-  color: #003366;
+  color: #660000;
 }
 
 p, a {
