@@ -27,7 +27,10 @@
     <a href="{{ repo.url }}"><h2 class='center repo-name'>{{ repo.full_name }}</h2></a>
     <p class="repo-description center">{{ repo.description }}</p>
     {% if repo.language.learn_url %}
+        <a href="{% url 'get_repo' repo.language.name %}"><h3>I don't fucking like that</h3></a>
+
         <a href="{{ repo.language.learn_url }}"><h3>I don't fucking know {{ repo.language.name }}</h3></a>
+
     {% endif %}
     {% else %}
     <h2>Fuck. No projects in this language.</h2>

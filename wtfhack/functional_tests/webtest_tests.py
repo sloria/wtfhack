@@ -35,7 +35,6 @@ class TestAUser(WebTest):
                                     description='The Ruby Programming Language')
         # goes to homepage
         res = self.app.get('/').follow()  # Follow redirect
-        time.sleep(1)  # TODO: Waits for redirect. Rethink this
         # The repo name and description are shown
         assert_in('ruby/ruby', res)
         assert_in('The Ruby Programming Language', res)
@@ -63,6 +62,22 @@ class TestAUser(WebTest):
         # goes to ruby page
         res = self.app.get(reverse(get_repo, args=('ruby',)))
         assert_in("I don't fucking know ruby", res)
+
+    def test_can_get_a_new_project(self):
+        # a repo is created
+        repo1 = Repo.objects.create(full_name='sloria/usv',
+                                    language=self.python)
+        # another repo is created
+        repo2 = Repo.objects.create(full_name='django/django',
+                                    language=self.python)
+        # goes to page
+        res = self.app.get(reverse(get_repo, args=('python',)))
+
+        res = res.click("I don't fucking like that.")
+        assert_equal(res.status, '200 OK')
+
+
+
 
 
 
