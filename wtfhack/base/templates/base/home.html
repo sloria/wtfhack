@@ -19,7 +19,7 @@
     <p class="repo-description center">{{ repo.description }}</p>
     {% if repo.language.learn_url %}
         <ul class='unstyled menu'>
-			<li><h3><a href="{% url 'get_repo' repo.language.name %}">I don't fucking like that</a></h3></li>
+			<li><h3><a href="{% url 'get_repo' repo.language.name %}">F that</a></h3></li>
 			<li><h3><a href="{{ repo.language.learn_url }}">I don't fucking know {{ repo.language.name }}</a></h3></li>
         </ul>
     {% endif %}
@@ -31,7 +31,7 @@
 <footer>
   <nav>
     <ul>
-      <li><a id="github" href="#">Submit</a></li>
+      <li><a id="github" href="#"><i class="icon-github-alt"></i>Submit</a></li>
     </ul>
   </nav>
 </footer>

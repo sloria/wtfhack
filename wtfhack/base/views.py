@@ -17,7 +17,7 @@ def home(request):
         random_language = random.choice(languages)
         return HttpResponseRedirect(reverse('get_repo', args=(random_language,)))
     else:
-        return render(request, 'base/home.html')
+        return render(request, 'base/home.html', {})
 
 
 def get_repo(request, language):
