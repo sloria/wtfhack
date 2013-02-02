@@ -171,11 +171,6 @@ TEMPLATE_LOADERS = (
     'django.template.loaders.app_directories.Loader',
 )
 
-FIXTURE_DIRS = (
-    os.path.join(PROJECT_ROOT, 'fixtures'),
-)
-
-
 def custom_show_toolbar(request):
     """ Only show the debug toolbar to users with the superuser flag. """
     return request.user.is_superuser

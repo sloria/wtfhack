@@ -2,18 +2,23 @@
 from django.db import models
 from github import Github
 
+class Language(models.Model):
+    name = models.CharField(max_length=40, null=False)
+    learn_url = models.URLField(null=True, blank=True)
+
+    @staticmethod
+    def all():
+        return [l.name for l in Language.objects.all()]
+    def __unicode__(self):
+        return self.name
+
 class Repo(models.Model):
     # Full name is required
     full_name = models.CharField(max_length=30, null=False)
     url = models.URLField(null=True)
-    language = models.CharField(max_length=40, null=True, blank=True)
+    language = models.ForeignKey(Language, related_name='repos')
     description = models.CharField(max_length=300, null=True, blank=True)
 
-
-    @staticmethod
-    def all_languages():
-        '''Return a list of all the available languages.'''
-        return list(Repo.objects.values_list('language', flat=True))
 
     def save(self, *args, **kwargs):
         '''Override save method to set default url.'''
@@ -26,4 +31,6 @@ class Repo(models.Model):
 
     def __unicode__(self):
         return "{full_name}: {language}".format(full_name=self.full_name,
-                                                language=self.language)
+                                                language=self.language.name)
+
+

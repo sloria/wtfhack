@@ -127,17 +127,17 @@
 <div id="content-header">
   <h1>
     <span id="module-name">wtfhack.base.models</span>:
-    17 total statements,
+    21 total statements,
     <span class="normal">100.0% covered</span>
   </h1>
-  <p>Generated: Sat 2013-02-02 03:23 CST</p>
+  <p>Generated: Sat 2013-02-02 07:22 CST</p>
   <p>Source file: /Users/sloria1/projects/django-projects/wtfhack/wtfhack/base/models.py</p>
   <p>
     Stats:
-    <span class="executed">13 executed</span>,
+    <span class="executed">15 executed</span>,
     <span class="missed">0 missed</span>,
-    <span class="excluded">4 excluded</span>,
-    <span class="ignored">12 ignored</span> 
+    <span class="excluded">6 excluded</span>,
+    <span class="ignored">15 ignored</span> 
   </p> 
 </div>
 
@@ -147,18 +147,23 @@
 <li class="excluded"><code>from django.db import models</code></li>
 <li class="excluded"><code>from github import Github</code></li>
 <li class="ignored"><code></code></li>
+<li class="executed"><code>class Language(models.Model):</code></li>
+<li class="executed"><code>    name = models.CharField(max_length=40, null=False)</code></li>
+<li class="executed"><code>    learn_url = models.URLField(null=True, blank=True)</code></li>
+<li class="ignored"><code></code></li>
+<li class="executed"><code>    @staticmethod</code></li>
+<li class="ignored"><code>    def all():</code></li>
+<li class="executed"><code>        return [l.name for l in Language.objects.all()]</code></li>
+<li class="excluded"><code>    def __unicode__(self):</code></li>
+<li class="excluded"><code>        return self.name</code></li>
+<li class="ignored"><code></code></li>
 <li class="executed"><code>class Repo(models.Model):</code></li>
 <li class="ignored"><code>    # Full name is required</code></li>
 <li class="executed"><code>    full_name = models.CharField(max_length=30, null=False)</code></li>
 <li class="executed"><code>    url = models.URLField(null=True)</code></li>
-<li class="executed"><code>    language = models.CharField(max_length=40, null=True, blank=True)</code></li>
+<li class="executed"><code>    language = models.ForeignKey(Language, related_name='repos')</code></li>
 <li class="executed"><code>    description = models.CharField(max_length=300, null=True, blank=True)</code></li>
 <li class="ignored"><code></code></li>
-<li class="ignored"><code></code></li>
-<li class="executed"><code>    @staticmethod</code></li>
-<li class="ignored"><code>    def all_languages():</code></li>
-<li class="ignored"><code>        '''Return a list of all the available languages.'''</code></li>
-<li class="executed"><code>        return list(Repo.objects.values_list('language', flat=True))</code></li>
 <li class="ignored"><code></code></li>
 <li class="executed"><code>    def save(self, *args, **kwargs):</code></li>
 <li class="ignored"><code>        '''Override save method to set default url.'''</code></li>
@@ -171,7 +176,9 @@
 <li class="ignored"><code></code></li>
 <li class="excluded"><code>    def __unicode__(self):</code></li>
 <li class="excluded"><code>        return "{full_name}: {language}".format(full_name=self.full_name,</code></li>
-<li class="executed"><code>                                                language=self.language)</code></li>
+<li class="ignored"><code>                                                language=self.language.name)</code></li>
+<li class="ignored"><code></code></li>
+<li class="ignored"><code></code></li>
   </ol>
 </div>
 

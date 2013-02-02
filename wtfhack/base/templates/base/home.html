@@ -10,10 +10,10 @@
                 <select name="selectedPage" 
                     onChange="changePage(this.form.selectedPage)">             
                 {% for language in all_languages %}
-                {% if language == selected %}
-                <option value="" selected="selected">{{ language }}</option>
+                {% if language.name == selected %}
+                <option value="" selected="selected">{{ language.name }}</option>
                 {% else %}
-                <option value="{% url 'get_repo' language  %}">{{ language }}</option>
+                <option value="{% url 'get_repo' language  %}">{{ language.name }}</option>
                 {% endif %}
                 {% endfor %}
             </select>.
@@ -25,7 +25,10 @@
 
     {% if repo %}
     <a href="{{ repo.url }}"><h2 class='center repo-name'>{{ repo.full_name }}</h2></a>
-    <p class="repo-description">{{ repo.description }}</p>
+    <p class="repo-description center">{{ repo.description }}</p>
+    {% if repo.language.learn_url %}
+        <a href="{{ repo.language.learn_url }}"><h3>I don't fucking know {{ repo.language.name }}</h3></a>
+    {% endif %}
     {% else %}
     <h2>Fuck. No projects in this language.</h2>
     {% endif %}
