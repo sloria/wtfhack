@@ -1,1 +1,1 @@
-web: python wtfhack/manage.py collectstatic --noinput; gunicorn wtfhack.wsgi:application
+web: python manage.py collectstatic --noinput; gunicorn wtfhack.wsgi:application
