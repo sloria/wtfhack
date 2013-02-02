@@ -3,6 +3,7 @@
 
 # Django stuff
 Django>=1.4
+gunicorn==0.17.2
 
 # Celery: Message queue
 # celery
