@@ -1,0 +1,25 @@
+# Install everything that needs to be compiled
+-r compiled.txt
+
+# Django stuff
+Django>=1.4
+
+# Celery: Message queue
+# celery
+# django-celery
+
+# Caching
+# python-memcached
+
+# Forms
+django-crispy-forms
+
+# Admin
+django-debug-toolbar
+
+# Migrations
+South
+
+# Various tidbits
+# commonware
+
