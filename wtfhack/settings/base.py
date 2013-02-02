@@ -4,6 +4,7 @@ repo. If you need to override a setting locally, use local.py
 """
 
 import os
+import dj_database_url
 
 # Your project root
 PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__) + "../../../")
@@ -209,3 +210,7 @@ FILE_UPLOAD_PERMISSIONS = 0664
 
 # The WSGI Application to use for runserver
 WSGI_APPLICATION = 'wtfhack.wsgi.application'
+
+DATABASES = {
+    'default': dj_database_url.config()
+}
