@@ -57,7 +57,7 @@ EXTERNAL_APPS = [
     # Third-party apps, patches, fixes
     #'djcelery',
     'django_nose',
-    'debug_toolbar',
+    # 'debug_toolbar',  # Uncomment for debug-toolbar support
     'django_extensions',
     'crispy_forms',
 
@@ -146,7 +146,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
+    # 'debug_toolbar.middleware.DebugToolbarMiddleware', # Uncomment for debug-toolbar support
 ]
 
 TEMPLATE_CONTEXT_PROCESSORS = [
