@@ -1,6 +1,7 @@
 # Choose your databases adapter
-#psycopg2
+psycopg2
 #MySQL-python
+dj-database-url
 
 # for bcrypt passwords
 # py-bcrypt
