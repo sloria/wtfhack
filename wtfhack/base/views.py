@@ -37,5 +37,14 @@ def get_repo(request, language):
                     'repo': repo
                     }
                 )
+				
+def submit(request):
+    """ View for the home page """
+    if Repo.objects.exists():
+        languages = Language.all()
+        random_language = random.choice(languages)
+        return HttpResponseRedirect(reverse('get_repo', args=(random_language,)))
+    else:
+        return render(request, 'base/home.html')
 
 

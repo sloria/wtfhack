@@ -6,6 +6,7 @@ from wtfhack.base.views import *
 
 urlpatterns = patterns('wtfhack.base.views',
     url(r'^$', 'home', name='home'),
+	url(r'^submit/$', 'submit', name='submit'),
     # ex: language/scala/
     url(r'^language/(?P<language>\w+)/$', get_repo, name='get_repo'),
 )

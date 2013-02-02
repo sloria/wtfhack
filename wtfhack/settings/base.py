@@ -86,7 +86,7 @@ GITHUB_APP_ID = '967927ca94e211a24a20'
 GITHUB_API_SECRET = '101a39e1a0d4c6e3c2b1f01b116bb327ef6bc682'
 
 LOGIN_URL          = '/login-form/'
-LOGIN_REDIRECT_URL = '/logged-in/'
+LOGIN_REDIRECT_URL = '/submit'
 LOGIN_ERROR_URL    = '/login-error/'
 
 SOCIAL_AUTH_COMPLETE_URL_NAME  = 'socialauth_complete'

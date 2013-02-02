@@ -31,7 +31,11 @@
 <footer>
   <nav>
     <ul>
-      <li><a id="github" href="#">Submit</a></li>
+		{% if user.is_active %}
+		<li><a href="{% url 'submit' %}">Submit</a></li>
+		{% else %}
+		<li><a href="{% url 'socialauth_begin' 'github' %}">Submit</a></li>
+		{% endif %}
     </ul>
   </nav>
 </footer>
@@ -54,9 +58,6 @@ $(function(){
         },
 
         value: "{{ selected }}"
-        });
-	$('#github').click(function() {
-		window.open("{% url 'socialauth_begin' 'github' %}");
 	});
 });
 </script>
