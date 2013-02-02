@@ -12,12 +12,12 @@ import random
 
 def home(request):
     """ View for the home page """
-    if Repo.objects.all():
+    if Repo.objects.exists():
         languages = Language.all()
         random_language = random.choice(languages)
         return HttpResponseRedirect(reverse('get_repo', args=(random_language,)))
     else:
-        return HttpResponse('WTF. No Repos. Try back later.')
+        return render(request, 'base/home.html')
 
 
 def get_repo(request, language):
