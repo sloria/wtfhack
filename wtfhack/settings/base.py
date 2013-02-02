@@ -53,6 +53,9 @@ EXTERNAL_APPS = [
     'django.contrib.humanize',
     'django.contrib.syndication',
     'django.contrib.staticfiles',
+	
+	#Github authentication
+	'social_auth',
 
     # Third-party apps, patches, fixes
     #'djcelery',
@@ -73,6 +76,23 @@ INTERNAL_APPS = [
 ]
 
 INSTALLED_APPS = EXTERNAL_APPS + INTERNAL_APPS
+
+AUTHENTICATION_BACKENDS = (
+    'social_auth.backends.contrib.github.GithubBackend',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+GITHUB_APP_ID = '967927ca94e211a24a20'
+GITHUB_API_SECRET = '101a39e1a0d4c6e3c2b1f01b116bb327ef6bc682'
+
+LOGIN_URL          = '/login-form/'
+LOGIN_REDIRECT_URL = '/logged-in/'
+LOGIN_ERROR_URL    = '/login-error/'
+
+SOCIAL_AUTH_COMPLETE_URL_NAME  = 'socialauth_complete'
+SOCIAL_AUTH_ASSOCIATE_URL_NAME = 'socialauth_associate_complete'
+
+SOCIAL_AUTH_DEFAULT_USERNAME = 'Hacker'
 
 # Place bcrypt first in the list, so it will be the default password hashing
 # mechanism
@@ -158,6 +178,10 @@ TEMPLATE_CONTEXT_PROCESSORS = [
     'django.core.context_processors.static',
     'django.core.context_processors.csrf',
     'django.contrib.messages.context_processors.messages',
+	'social_auth.context_processors.social_auth_by_name_backends',
+    'social_auth.context_processors.social_auth_backends',
+    'social_auth.context_processors.social_auth_by_type_backends',
+    'social_auth.context_processors.social_auth_login_redirect',
 ]
 
 TEMPLATE_DIRS = (
