@@ -16,6 +16,7 @@ urlpatterns = patterns('',
     #url(r'^', include('debug_toolbar_user_panel.urls')),
     (r'^bad/$', bad),
 	(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
+	(r'', include('social_auth.urls')),
 )
 
 ## In DEBUG mode, serve media files through Django.
