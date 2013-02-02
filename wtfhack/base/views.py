@@ -4,6 +4,7 @@ from django.core.urlresolvers import reverse
 from django.shortcuts import render_to_response, render, get_object_or_404
 from django.template import RequestContext
 from django.http import HttpResponse, HttpResponseRedirect
+from django.utils import simplejson
 
 from wtfhack.base.models import *
 import random
@@ -28,6 +29,7 @@ def get_repo(request, language):
         repo = random.choice(repos)
     else:
         repo = None
+
     return render(request, 
                     'base/home.html', 
                     {'all_languages': Language.objects.all(),
@@ -35,3 +37,5 @@ def get_repo(request, language):
                     'repo': repo
                     }
                 )
+
+

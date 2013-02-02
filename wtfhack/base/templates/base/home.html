@@ -5,19 +5,10 @@
 <div class="container">
     <div class="row">
         <h1>
-            <form class='form-inline' name="language-form">
             I want to fucking hack
-                <select name="selectedPage" 
-                    onChange="changePage(this.form.selectedPage)">             
-                {% for language in all_languages %}
-                {% if language.name == selected %}
-                <option value="" selected="selected">{{ language.name }}</option>
-                {% else %}
-                <option value="{% url 'get_repo' language  %}">{{ language.name }}</option>
-                {% endif %}
-                {% endfor %}
-            </select>.
-        </form>
+<a href="#" id="language-select" data-type="select" data-pk="1"  data-original-title="language"></a>.
+
+        
     </h1>
 </div><!-- end row-->
 
@@ -37,4 +28,25 @@
     {% endif %}
 </div><!-- end row -->
 </div> <!-- /container -->
+
+<script>
+$(function(){
+    var $languageSelect = $('#language-select');
+    $languageSelect.editable({
+        value: 2,
+        showbuttons: false, 
+        source: [
+            {% for language in all_languages %}
+                {value: "{{ language.name }}", text: "{{ language.name }}"},
+            {% endfor %}
+           ],
+        url: function(params){
+            var language = params.value;
+            document.location.href = '/language/' + language;
+        },
+
+        value: "{{ selected }}"
+        });
+});
+</script>
 {% endblock %}

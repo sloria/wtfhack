@@ -17,6 +17,14 @@
   <link rel="stylesheet" href="{{ STATIC_URL }}css/style.css">
   {% block css %}{% endblock %}
 
+  
+  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="{{ STATIC_URL }}js/libs/jquery-1.9.0.min.js"><\/script>')</script>
+
+  {# Include X-editable #}
+  <script src="{{ STATIC_URL }}bootstrap-editable/js/bootstrap-editable-inline.js"></script>
+
      </head>
      <body class="{% block body_class %}{% endblock %}">
   {% block body %}
@@ -24,10 +32,6 @@
   <div role="main">
     {% block content %}{% endblock %}
   </div>
-
-  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="{{ STATIC_URL }}js/libs/jquery-1.9.0.min.js"><\/script>')</script>
 
   <!-- scripts concatenated and minified via build script -->
   <script src="{{ STATIC_URL }}js/plugins.js"></script>
