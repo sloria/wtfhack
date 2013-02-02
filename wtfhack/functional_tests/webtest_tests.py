@@ -28,16 +28,6 @@ class TestAUser(WebTest):
         # Sees text
         assert_in('I want to fucking hack', root)
 
-    def test_homepage_with_repo(self):
-        # a ruby repo is created
-        repo = Repo.objects.create(full_name='ruby/ruby',
-                                    language=self.ruby,
-                                    description='The Ruby Programming Language')
-        # goes to homepage
-        res = self.app.get('/').follow()  # Follow redirect
-        # The repo name and description are shown
-        assert_in('ruby/ruby', res)
-        assert_in('The Ruby Programming Language', res)
 
     def test_can_see_language(self):
         # a ruby repo is created
@@ -73,7 +63,7 @@ class TestAUser(WebTest):
         # goes to page
         res = self.app.get(reverse(get_repo, args=('python',)))
 
-        res = res.click("I don't fucking like that.")
+        res = res.click("I don't fucking like that")
         assert_equal(res.status, '200 OK')
 
 

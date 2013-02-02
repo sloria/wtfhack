@@ -53,6 +53,14 @@ h1, h2, h3, h4, h5, h6 {
   text-rendering: optimizelegibility;
 }
 
+.repo-name a {
+  color: #003366;
+}
+
+p, a {
+  color: #333333;
+}
+
 /* footer */
 
 footer {

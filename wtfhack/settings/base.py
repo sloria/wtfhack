@@ -27,10 +27,6 @@ MINIFY_BUNDLES = {
 
 # DEBUG = TEMPLATE_DEBUG = True
 
-FIXTURE_DIRS = (
-    os.path.join(PROJECT_ROOT, 'fixtures'),
-)
-
 
 SUPPORTED_NONLOCALES = ['media', 'admin', 'static']
 
@@ -178,6 +174,10 @@ TEMPLATE_LOADERS = (
     'django.template.loaders.app_directories.Loader',
 )
 
+FIXTURE_DIRS = (
+    os.path.join(PROJECT_ROOT, 'fixtures'),
+)
+
 def custom_show_toolbar(request):
     """ Only show the debug toolbar to users with the superuser flag. """
     return request.user.is_superuser
@@ -203,6 +203,7 @@ DEBUG_TOOLBAR_PANELS = (
     'debug_toolbar.panels.signals.SignalDebugPanel',
     'debug_toolbar.panels.logger.LoggingPanel',
 )
+
 
 # Specify a model to use for user profiles, if desired.
 #AUTH_PROFILE_MODULE = 'wtfhack.accounts.UserProfile'

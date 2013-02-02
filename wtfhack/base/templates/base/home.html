@@ -15,12 +15,15 @@
 <div class="row">
 
     {% if repo %}
-    <a href="{{ repo.url }}"><h2 class='center repo-name'>{{ repo.full_name }}</h2></a>
+    <h2 class='center repo-name'><a href="{{ repo.url }}">{{ repo.full_name }}</a></h2>
     <p class="repo-description center">{{ repo.description }}</p>
     {% if repo.language.learn_url %}
-        <a href="{% url 'get_repo' repo.language.name %}"><h3>I don't fucking like that</h3></a>
+        <ul class='unstyled menu'>
+        <li><h3><a href="{% url 'get_repo' repo.language.name %}">I don't fucking like that</a></h3></li>
+        <li><h3><a href="{{ repo.language.learn_url }}">I don't fucking know {{ repo.language.name }}</a></h3></li>
+            
+        </ul>
 
-        <a href="{{ repo.language.learn_url }}"><h3>I don't fucking know {{ repo.language.name }}</h3></a>
 
     {% endif %}
     {% else %}
