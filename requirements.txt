@@ -1,0 +1,2 @@
+# Install everything that is needed for production
+-r requirements/prod.txt
