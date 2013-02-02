@@ -7,8 +7,12 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.utils import simplejson
 
 from wtfhack.base.models import *
+from social_auth.models import UserSocialAuth
+from github import Github
+
 import random
 
+from pprint import pprint
 
 def home(request):
     """ View for the home page """
@@ -37,5 +41,14 @@ def get_repo(request, language):
                     'repo': repo
                     }
                 )
+				
+def submit(request):
+    """ View for the submit page """
+    user = UserSocialAuth.objects.filter(provider='github').get(id=request.user.id)
+    print user.tokens[u'access_token']
+    github = Github(user.tokens[u'access_token'])
+    repos = [repo for repo in github.get_user().get_repos()]
+    print repos
+    return render(request, 'base/submit.html', {'repos': repos})
 
 
