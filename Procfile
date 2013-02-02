@@ -1,1 +1,1 @@
-web: gunicorn wtfhack/wsgi.py
+web: gunicorn wtfhack.wsgi:application
