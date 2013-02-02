@@ -25,6 +25,9 @@ MINIFY_BUNDLES = {
     }
 }
 
+DEBUG = TEMPLATE_DEBUG = True
+
+
 SUPPORTED_NONLOCALES = ['media', 'admin', 'static']
 
 # Language code for this installation. All choices can be found here:
