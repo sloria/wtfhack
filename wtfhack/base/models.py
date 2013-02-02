@@ -13,10 +13,10 @@ class Language(models.Model):
 
 class Repo(models.Model):
     # Full name is required
-    full_name = models.CharField(max_length=30, null=False)
+    full_name = models.CharField(max_length=300, null=False)
     url = models.URLField(null=True)
     language = models.ForeignKey(Language, related_name='repos')
-    description = models.CharField(max_length=300, null=True, blank=True)
+    description = models.CharField(max_length=500, null=True, blank=True)
 
 
     def save(self, *args, **kwargs):
