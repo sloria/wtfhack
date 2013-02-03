@@ -58,6 +58,14 @@ h1 {
   color: #000066;
 }
 
+a {
+  color: #000066;
+}
+
+.dark {
+  color: #333333;
+}
+
 h1, h2, h3, h4, h5, h6 {
   margin-top: 40px;
   font-weight: bold;
@@ -65,14 +73,21 @@ h1, h2, h3, h4, h5, h6 {
   text-rendering: optimizelegibility;
 }
 
+code.language {
+  font-size: 2em;
+}
+
 a.repo-name{
   color: #660000;
 }
 
-p, a {
-  color: #333333;
+a {
+ color: #000066;
 }
 
+.repo{
+  padding: 30px;
+}
 /* footer */
 
 footer {
@@ -103,15 +118,12 @@ footer ul li {
 /* block quotes */
 
 blockquote.title {
+  font-family: 'Garamond', 'Georgia', serif;
   text-align: center;
   border: none;
   font-size: 2.8em;
   font-weight: normal;
 }
 
-blockquote {
-display: block;
-padding: 0 60px;
-/*width: 350px;*/
-}
+
 

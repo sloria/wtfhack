@@ -1,19 +1,16 @@
 """ Views for the base application """
 
+import random
 from django.core.urlresolvers import reverse
-from django.shortcuts import render_to_response, render, get_object_or_404
-from django.template import RequestContext
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.utils import simplejson
 from django.views.decorators.csrf import ensure_csrf_cookie
 
-from wtfhack.base.models import *
+from wtfhack.base.models import Repo, Language
 from social_auth.models import UserSocialAuth
 from github import Github
 
-import random
-
-from pprint import pprint
 
 def home(request):
     """ View for the home page """
@@ -43,11 +40,10 @@ def get_repo(request, language):
                     }
                 )
 
-@ensure_csrf_cookie		
+@ensure_csrf_cookie     
 def submit(request):
     """ View for the submit page.
-
-    Must be a POST request """
+    """
     if request.user.is_active:
         user = UserSocialAuth.objects.filter(provider='github').get(user_id=request.user.id)
         github = Github(user.tokens[u'access_token'])
@@ -57,7 +53,8 @@ def submit(request):
         return HttpResponseRedirect(reverse('socialauth_begin', args=('github',)))
 
 def add_repo(request):
-    """ View for adding a repo """
+    """ View for adding a repo.
+    """
     user = UserSocialAuth.objects.filter(provider='github').get(user_id=request.user.id)
     github = Github(user.tokens[u'access_token'])
     name = request.POST['name']
@@ -72,7 +69,7 @@ def add_repo(request):
         return HttpResponse(json, mimetype='application/json')
 
     # TODO: exception handling here
-    language_obj, created_lang = Language.objects.get_or_create(name=repo.language.lower())
+    language_obj, created_lang = Language.objects.get_or_create(name=language_str)
     repo_obj, created_repo = Repo.objects.get_or_create(full_name=repo.full_name,
                                                 description=repo.description,
                                                 language=language_obj)

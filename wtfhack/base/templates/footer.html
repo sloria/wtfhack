@@ -6,12 +6,12 @@
     <ul>
         <li><a href="{% url 'home' %}">Home</a>
         {% if user.is_active %}
-        <li><a href="{% url 'submit' %}">Submit</a></li>
+        <li><a class='dark' href="{% url 'submit' %}">Submit</a></li>
         {% else %}
-        <li><a href="{% url 'socialauth_begin' 'github' %}">Submit</a></li>
+        <li><a class='dark' href="{% url 'socialauth_begin' 'github' %}">Submit</a></li>
         {% endif %}
         <li><a href="https://github.com/sloria/wtfhack">Hack this</a></li>
-		<li><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=ZRY3B8TESSVMN&lc=US&item_name=wtfhack&currency_code=USD&bn=PP%2dDonationsBF%3aKgL2jzI%2egif%3aNonHosted">Beer this</a>
+		<li><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=ZRY3B8TESSVMN&lc=US&item_name=wtfhack&currency_code=USD&bn=PP%2dDonationsBF%3aKgL2jzI%2egif%3aNonHosted">Donate this</a>
     </ul>
   </nav>
 </footer>
