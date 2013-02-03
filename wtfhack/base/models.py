@@ -7,7 +7,7 @@ class Language(models.Model):
 
     @staticmethod
     def all():
-        return [l.name for l in Language.objects.all()]
+        return [l.name for l in Language.objects.order_by('name')]
     def __unicode__(self):
         return self.name
 

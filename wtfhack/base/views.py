@@ -37,7 +37,7 @@ def get_repo(request, language):
 
     return render(request, 
                     'base/home.html', 
-                    {'all_languages': Language.objects.all(),
+                    {'all_languages': Language.objects.order_by('name'),
                     'selected': language,
                     'repo': repo
                     }

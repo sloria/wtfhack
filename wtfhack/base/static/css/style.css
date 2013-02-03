@@ -13,8 +13,8 @@
 
    ========================================================================== */
 
-@import url('bootstrap.css');
-@import url('bootstrap-responsive.css');
+@import url('bootstrap.min.css');
+@import url('bootstrap-responsive.min.css');
 @import url('bootstrap-editable.css');
 @import url('app.css');
 
