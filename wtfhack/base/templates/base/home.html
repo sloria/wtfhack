@@ -6,50 +6,51 @@
 <div class="row">
     <blockquote class='title'><h1>&ldquo;What the fuck should I hack this weekend?&rdquo;</h1></blockquote>
 </div>
-    <div class="row">
-        {% if repo %}     
-        <h1>
-            I want to fucking hack
-        <a href="#" id="language-select" data-type="select" data-pk="1"  data-original-title="language"></a>.
-    <small>(Click to change)</small></h1>
-</div><!-- end row-->
-        {% endif %}
-
 <div class="row">
-    {% if repo %}
-    <div class="repo">  
-    <h2 class='center'><a class='repo-name' href="{{ repo.url }}">{{ repo.full_name }}</a></h2>
-    <p class="repo-description center">{{ repo.description }}</p>
-    </div>
+    {% if repo %}     
+    <h1>
+        I want to fucking hack
+        <a href="#" id="language-select" data-type="select" data-pk="1"  data-original-title="language"></a>.
+        <small>(Click to change)</small></h1>
+    </div><!-- end row-->
+    {% endif %}
+
+    <div class="row">
+        {% if repo %}
+        <div class="repo">  
+            <h2 class='center'><a class='repo-name' href="{{ repo.url }}">{{ repo.full_name }}</a></h2>
+            <p class="repo-description center">{{ repo.description }}</p>
+        </div>
         <ul class='center unstyled menu'>
             <li><h3><a class='btn btn-large btn-danger' href="{% url 'get_repo' repo.language.name %}">Fuck that</a></h3></li>
-    {% if repo.language.learn_url %}
-			<li><h3><a class='btn btn-large btn-danger' href="{{ repo.language.learn_url }}">I don't fucking know {{ repo.language.name }}</a></h3></li>
+            {% if repo.language.learn_url %}
+            <li><h3><a class='btn btn-large btn-danger' href="{{ repo.language.learn_url }}">I don't fucking know {{ repo.language.name }}</a></h3></li>
+        {% endif %}
+        <li><h3><a class='btn btn-large btn-danger' href="{% url 'home' %}">Random language</a></h3></li>
         </ul>
-    {% endif %}
-    {% else %}
-    <h2>No projects. <a class='btn' href="{% url 'socialauth_begin' 'github' %}">Contribute.</a></h2>
-    {% endif %}
-</div><!-- end row -->
+        {% else %}
+        <h2>No projects. <a class='btn' href="{% url 'socialauth_begin' 'github' %}">Contribute.</a></h2>
+        {% endif %}
+    </div><!-- end row -->
 
 
-<script>
-$(function(){
-    $('#language-select').editable({
-        value: 2,
-        showbuttons: false, 
-        source: [
+    <script>
+    $(function(){
+        $('#language-select').editable({
+            value: 2,
+            showbuttons: false, 
+            source: [
             {% for language in all_languages %}
-                {value: "{{ language.name }}", text: "{{ language.name }}"},
+            {value: "{{ language.name }}", text: "{{ language.name }}"},
             {% endfor %}
-           ],
-        url: function(params){
-            var language = params.value;
-            document.location.href = '/language/' + language;
-        },
+            ],
+            url: function(params){
+                var language = params.value;
+                document.location.href = '/language/' + language;
+            },
 
-        value: "{{ selected }}"
-	});
-});
-</script>
-{% endblock %}
+            value: "{{ selected }}"
+        });
+    });
+    </script>
+    {% endblock %}
