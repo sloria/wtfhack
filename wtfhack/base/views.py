@@ -48,14 +48,13 @@ def submit(request):
     """ View for the submit page.
 
     Must be a POST request """
-    print "request.user.id: {}".format(request.user.id)
     if request.user.is_active:
         user = UserSocialAuth.objects.filter(provider='github').get(user_id=request.user.id)
         github = Github(user.tokens[u'access_token'])
         repos = [repo for repo in github.get_user().get_repos()]
         return render(request, 'base/submit.html', {'repos': repos})
     else:
-        return HttpResponseRedirect(reverse('socialauth_begin', args=(github,)))
+        return HttpResponseRedirect(reverse('socialauth_begin', args=('github',)))
 
 def add_repo(request):
     """ View for adding a repo """
