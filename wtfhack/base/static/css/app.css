@@ -99,3 +99,28 @@ footer ul li {
   float: left;
   margin-left: 10px;
 }
+
+/* block quotes */
+
+blockquote.title {
+  text-align: center;
+  border: none;
+}
+.bqstart {
+     float: left;
+     height: 45px;
+     margin-top: -20px;
+     padding-top: 45px;
+     font-size: 700%;
+ }
+
+ .bqtext {
+  font-size: 2.8em;
+ }
+
+ .bqend {
+     float: right;
+     height: 25px;
+     margin-top: 0px;
+     font-size: 700%;
+ }
