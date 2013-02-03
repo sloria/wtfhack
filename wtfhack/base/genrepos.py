@@ -10,7 +10,7 @@ LANGUAGES = ['Android',
             'Haskell',
             'Java',
             'Javascript',
-            'Cofeescript',
+            'Coffeescript',
             'Objective-C',
             'Python',
             'R',
@@ -46,10 +46,11 @@ def save_to_db(n=5):
         language_obj, created_lang = Language.objects.get_or_create(name=language.lower())
         repos = get_repos(language, query='random')
         for i in range(n):
-            repo = repos.pop(random.randint(0, len(repos)))
-            repo_obj, created_repo = Repo.objects.get_or_create(full_name=repo.full_name,
-                                                description=repo.description,
-                                                language=language_obj)
+            if len(repos > 0):
+                repo = repos.pop(random.randint(0, len(repos)))
+                repo_obj, created_repo = Repo.objects.get_or_create(full_name=repo.full_name,
+                                                    description=repo.description,
+                                                    language=language_obj)
 
     return True
 
