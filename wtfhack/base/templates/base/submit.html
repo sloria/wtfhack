@@ -8,7 +8,7 @@
     </div><!-- end row-->
 
     <div class="row">
-        <ul class="unstyled">
+        <ul class="repo-list unstyled">
             {% for repo in repos %}
             <li><a class='repo-name' data-value="{{ repo.name }}" href="#">{{ repo.full_name }}</a></li>
             {% endfor %}
@@ -29,7 +29,6 @@
                         document.location.href = '/';
                     }
                 }
-
             });
         });
     </script>

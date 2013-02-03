@@ -35,6 +35,18 @@ textarea {
   margin-bottom: 10px;
 }
 
+ul.repo-list{
+  margin: 40px;
+}
+
+ul.repo-list li {
+  margin-top: 20px;
+}
+
+footer li {
+  margin-right: 20px;
+}
+
 /* Typography */
 
 h1 {
@@ -43,11 +55,11 @@ h1 {
 }
 
 .editable {
-  color: #3333cc;
+  color: #000066;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  margin-top: 20px;
+  margin-top: 40px;
   font-weight: bold;
   color: #333333;
   text-rendering: optimizelegibility;
