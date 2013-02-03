@@ -25,7 +25,7 @@ MINIFY_BUNDLES = {
     }
 }
 
-DEBUG = TEMPLATE_DEBUG = True
+#DEBUG = TEMPLATE_DEBUG = True
 
 
 SUPPORTED_NONLOCALES = ['media', 'admin', 'static']
