@@ -1,20 +1,38 @@
 {% extends "base.html" %}
 {% load url from future %}
-{% block page_class %}home-page{% endblock %}
 {% block content %}
-<div class="container">
     <div class="row">
         <h1>
             Which project?        
         </h1>
-</div><!-- end row-->
+    </div><!-- end row-->
 
-<div class="row">
+    <div class="row">
+        <ul class="unstyled">
+            {% for repo in repos %}
+            <li><a class='repo-name' data-value="{{ repo.name }}" href="#">{{ repo.full_name }}</a></li>
+            {% endfor %}
+        </ul>
+    </div><!-- end row -->
 
-    <p>projects here...</p>
-</div><!-- end row -->
+    <script>
+        $('a.repo-name').on('click', function(event) {
+            var repoName = $(this).data('value');
+            $.ajax("{% url 'add_repo' %}", {
+                type: 'POST',
+                data: {
+                    'name': repoName
+                },
+                success: function(data) {
+                    alert(data.message);
+                    if (data.success){
+                        document.location.href = '/';
+                    }
+                }
 
+            });
+        });
+    </script>
 
-</div> <!-- /container -->
 
 {% endblock %}

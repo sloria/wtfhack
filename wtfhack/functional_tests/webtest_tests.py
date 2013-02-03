@@ -28,7 +28,6 @@ class TestAUser(WebTest):
         # Sees text
         assert_in('I want to fucking hack', root)
 
-
     def test_can_see_language(self):
         # a ruby repo is created
         repo = Repo.objects.create(full_name='ruby/ruby',
@@ -41,8 +40,10 @@ class TestAUser(WebTest):
         
     def test_no_repos(self):
         # goes to ruby page
-        res = self.app.get(reverse(get_repo, args=('ruby',)))
-        assert_in('Fuck. No projects in this language.', res)
+        res = self.app.get('/')
+        assert_in('No projects', res)
+
+        res = res.click('Contribute')
 
     def test_can_learn(self):
         # a ruby repo is created

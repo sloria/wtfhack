@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load url from future %}
+{% block page_class %}home-page{% endblock %}
+{% block content %}
+<div class="row">
+    {% if success %}
+        <h1>Successfully added.</h1>
+    {% else %}
+        <h1>{{ message }}</h1>
+    {% endif %}
+</div><!-- end row -->
+{% endblock %}
