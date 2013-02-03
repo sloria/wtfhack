@@ -8,7 +8,7 @@ urlpatterns = patterns('wtfhack.base.views',
     url(r'^$', 'home', name='home'),
 	url(r'^submit/$', 'submit', name='submit'),
     # ex: language/scala/
-    url(r'^language/(?P<language>[\w\-]+)/$', get_repo, name='get_repo'),
+    url(r'^language/(?P<language>[\w\-\+]+)/$', get_repo, name='get_repo'),
     # ex: add_repo/
     url(r'^add_repo/$', add_repo, name='add_repo'),
 
