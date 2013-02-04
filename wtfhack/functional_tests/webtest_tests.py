@@ -1,12 +1,11 @@
 '''Functional tests using WebTest'''
 
-import time
 from django.core.urlresolvers import reverse
 from django_webtest import WebTest
 from nose.tools import *
 
-from wtfhack.base.models import *
-from wtfhack.base.views import *
+from wtfhack.base.models import Repo, Language
+from wtfhack.base.views import get_repo
 
 class TestAUser(WebTest):
 

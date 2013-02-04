@@ -1,7 +1,7 @@
 """urlconf for the base application"""
 
 from django.conf.urls.defaults import url, patterns
-from wtfhack.base.views import *
+from wtfhack.base.views import get_repo, add_repo
 
 
 urlpatterns = patterns('wtfhack.base.views',
