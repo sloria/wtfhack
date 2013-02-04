@@ -11,8 +11,8 @@ def bad(request):
 
 urlpatterns = patterns('',
     (r'', include('wtfhack.base.urls')),
-    (r'^admin/doc/', include('django.contrib.admindocs.urls')),
-    (r'^admin/', include(admin.site.urls)),
+    (r'^auth/admin/doc/', include('django.contrib.admindocs.urls')),
+    (r'^auth/admin/', include(admin.site.urls)),
     #url(r'^', include('debug_toolbar_user_panel.urls')),
     (r'^bad/$', bad),
 	(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),

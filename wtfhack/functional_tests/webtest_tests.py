@@ -64,7 +64,7 @@ class TestAUser(WebTest):
         # goes to page
         res = self.app.get(reverse(get_repo, args=('python',)))
 
-        res = res.click("F that")
+        res = res.click("Fuck that")
         assert_equal(res.status, '200 OK')
 
     def test_can_submit(self):
